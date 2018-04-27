@@ -1,8 +1,8 @@
 # AIYCube
-=========
+
 
 Rasbian Configuration
----------------------
+=====================
 
 create a file '/boot/wpa_supplicant.conf' to enable wifi connection
 
@@ -33,6 +33,10 @@ edit file '/boot/config.txt', add line
     #enable TFT ILI9341 320x240
     dtparam=spi=on
     dtoverlay=pitft22,rotate=90,speed=64000000,fps=25
+    #HDMI DTM mode
+    hdmi_group=2
+    #640x480 60hz
+    hdmi_mode=4
     
     #enable TFT Touch
     dtoverlay=ads7846,xohms=80,pmax=255,penirq=17,swapxy
