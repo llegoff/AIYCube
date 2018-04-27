@@ -58,11 +58,11 @@ configure rasbian
 
     sudo raspi-config
 change password    
-  1 Change User Password
+* 1 Change User Password
 
 change hostname  
-  2 Network Options
-  N1 Hostname
+* 2 Network Options
+* N1 Hostname
   
 change langue 
   4 Localisation Options
