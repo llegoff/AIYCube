@@ -65,37 +65,37 @@ change hostname
 * N1 Hostname
   
 change langue 
-  4 Localisation Options
-  I1 Change Locale
+* 4 Localisation Options
+*I1 Change Locale
 select your language and UTF8 
 
 change time zone
-  4 Localisation Options
-  I2 Change Timezone
+* 4 Localisation Options
+* I2 Change Timezone
 
 change Keyboard layout
-  4 Localisation Options
-  I3 Change Keyboard Layout
+* 4 Localisation Options
+* I3 Change Keyboard Layout
 select your keyboard layout
 
 change wifi country code
-  4 Localisation Options
-  I4 Change Wi-fi Country
+* 4 Localisation Options
+* I4 Change Wi-fi Country
 select your country code
 
 enable camera
-  5 Interfacing Options
-  P1 Camera
+* 5 Interfacing Options
+* P1 Camera
 
 enable serial0 without console
-  5 Interfacing Options
-  P6 Serial
-  No
-  Yes
+* 5 Interfacing Options
+* P6 Serial
+* No
+* Yes
   
 expande file system
-  7 Advanced Options
-  A1 Expand Filesystem
+* 7 Advanced Options
+* A1 Expand Filesystem
   
 select finish and reboot
 
