@@ -3,6 +3,10 @@
 
 Rasbian Configuration
 =====================
+SD Card preparation
+-------------------
+
+write last rasbian image on SD Card
 
 create a file '/boot/wpa_supplicant.conf' to enable wifi connection
 
