@@ -99,9 +99,74 @@ expande file system
   
 select finish and reboot
 
+Configure TFT with framebuffer copy
+-----------------------------------
+install fbcp
 
+    sudo apt-get install cmake
+    git clone https://github.com/tasanakorn/rpi-fbcp
+    cd rpi-fbcp/
+    mkdir build
+    cd build/
+    cmake ..
+    make
+    sudo install fbcp /usr/local/bin/fbcp
 
-  
-  
+load fbcp
+
+    fbcp &
     
+to run fbcp at startup, create file '/etc/init.d/fbcp'
+
+    #! /bin/sh
+    # /etc/init.d/fbcp
+
+    ### BEGIN INIT INFO
+    # Provides:          fbcp
+    # Required-Start:    $remote_fs $syslog
+    # Required-Stop:     $remote_fs $syslog
+    # Default-Start:     2 3 4 5
+    # Default-Stop:      0 1 6
+    # Short-Description: Simple script to start a program at boot
+    # Description:       A simple script from www.stuffaboutcode.com which will start / stop a program a boot / shutdown.
+    ### END INIT INFO
+
+    # If you want a command to always run, put it here
+
+    # Carry out specific functions when asked to by the system
+    case "$1" in
+      start)
+        echo "Starting fbcp"
+       # run application you want to start
+        /usr/local/bin/fbcp &
+        ;;
+      stop)
+        echo "Stopping fbcp"
+        # kill application you want to stop
+        killall fbcp
+    ;;
+      *)
+        echo "Usage: /etc/init.d/noip {start|stop}"
+        exit 1
+        ;;
+    esac
     
+    exit 0 
+ 
+make script executable
+
+    sudo chmod 755 /etc/init.d/fbcp
+    
+test staring
+
+    sudo /etc/init.d/fbcp start
+
+test stopping
+
+    sudo /etc/init.d/fbcp stop
+
+register script to be run at startup
+
+    sudo update-rc.d fbcp defaults
+
+(to remove :  sudo update-rc.d -f  fbcp remove )
