@@ -130,7 +130,7 @@ load fbcp
     
 to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 
-    fbcp&
+    /usr/local/bin/fbcp&
     
     
 
