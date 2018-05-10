@@ -38,15 +38,16 @@ edit file '/boot/config.txt', add line
     dtparam=spi=on
     dtoverlay=pitft22,rotate=90,speed=64000000,fps=25
     
-    #HDMI DTM mode
-    hdmi_group=2
-    
     #640x480 60hz for framebuffer copy /2
+    #hdmi_force_hotplug=1
     #hdmi_cvt=640 480 60 1 0 0 0
+    #hdmi_group=2
     #hdmi_mode=87
     
     #320x240 60hz  for frame buffer copy
+    hdmi_force_hotplug=1
     hdmi_cvt=320 240 60 1 0 0 0
+    hdmi_group=2
     hdmi_mode=87
     
     #enable TFT Touch
@@ -118,62 +119,18 @@ install fbcp
     cmake ..
     make
     sudo install fbcp /usr/local/bin/fbcp
+    
+    cd ..
+    cd ..
+    rm -rf rpi-fbcp
 
 load fbcp
 
     fbcp &
     
-to run fbcp at startup, create file '/etc/init.d/fbcp'
+to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 
-    #! /bin/sh
-    # /etc/init.d/fbcp
-
-    ### BEGIN INIT INFO
-    # Provides:          fbcp
-    # Required-Start:    $remote_fs $syslog
-    # Required-Stop:     $remote_fs $syslog
-    # Default-Start:     2 3 4 5
-    # Default-Stop:      0 1 6
-    # Short-Description: Simple script to start a program at boot
-    # Description:       A simple script from www.stuffaboutcode.com which will start / stop a program a boot / shutdown.
-    ### END INIT INFO
-
-    # If you want a command to always run, put it here
-
-    # Carry out specific functions when asked to by the system
-    case "$1" in
-      start)
-        echo "Starting fbcp"
-       # run application you want to start
-        /usr/local/bin/fbcp &
-        ;;
-      stop)
-        echo "Stopping fbcp"
-        # kill application you want to stop
-        killall fbcp
-    ;;
-      *)
-        echo "Usage: /etc/init.d/noip {start|stop}"
-        exit 1
-        ;;
-    esac
+    fbcp&
     
-    exit 0 
- 
-make script executable
-
-    sudo chmod 755 /etc/init.d/fbcp
     
-test staring
 
-    sudo /etc/init.d/fbcp start
-
-test stopping
-
-    sudo /etc/init.d/fbcp stop
-
-register script to be run at startup
-
-    sudo update-rc.d fbcp defaults
-
-(to remove :  sudo update-rc.d -f  fbcp remove )
