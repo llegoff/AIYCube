@@ -37,10 +37,17 @@ edit file '/boot/config.txt', add line
     #enable TFT ILI9341 320x240
     dtparam=spi=on
     dtoverlay=pitft22,rotate=90,speed=64000000,fps=25
+    
     #HDMI DTM mode
     hdmi_group=2
-    #640x480 60hz
-    hdmi_mode=4
+    
+    #640x480 60hz for framebuffer copy /2
+    #hdmi_cvt=640 480 60 1 0 0 0
+    #hdmi_mode=87
+    
+    #320x240 60hz  for frame buffer copy
+    hdmi_cvt=320 240 60 1 0 0 0
+    hdmi_mode=87
     
     #enable TFT Touch
     dtoverlay=ads7846,xohms=80,pmax=255,penirq=24,swapxy
