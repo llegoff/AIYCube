@@ -9,9 +9,6 @@ SD Card preparation
 write last rasbian image on SD Card
 
 create a file '/boot/wpa_supplicant.conf' to enable wifi connection
-
-    sudo nano /boot/wpa_supplicant.conf
-
 with content
 
     country=FR
@@ -136,29 +133,7 @@ to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 
     until "/usr/local/bin/fbcp"; do sleep 1; done &
     
-to run fbcp at startup, create file '/etc/systemd/system/fbcp.service'
-    
-    sudo nano /etc/systemd/system/fbcp.service
-   
-with content
-    
-    [Unit]
-    Description=Frame Buffer Copy service
-        
-    [Service]
-    User=root
-    ExecStart=/usr/local/bin/fbcp
-    ExecReload=/bin/kill -s HUP $MAINPID
-    Type=simple
-    
-    [Install]
-    WantedBy=multi-user.target
-    
-enable service
-    
-    sudo systemctl daemon-reload
-    sudo systemctl enable fbcp.service
-    sudo systemctl start fbcp.service
+
     
     
 
