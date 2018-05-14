@@ -134,7 +134,7 @@ load fbcp
     
 to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 
-    /usr/local/bin/fbcp&
+    until "/usr/local/bin/fbcp"; do sleep 1; done &
     
 to run fbcp at startup, create file '/etc/systemd/system/fbcp.service'
     
