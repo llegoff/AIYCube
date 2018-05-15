@@ -1,7 +1,7 @@
 # AIYCube
 
 
-##SD Card preparation
+## SD Card preparation
 
 write last rasbian image on SD Card
 
@@ -73,7 +73,7 @@ expande file system
   
 select finish and reboot
 
-##Configure TFT
+## Configure TFT
 
 edit file '/boot/config.txt', add line
 
@@ -93,9 +93,9 @@ edit file '/boot/config.txt', add line
     #hdmi_group=2
     #hdmi_mode=87
 
-###Use TFT as second screen
+### Use TFT as second screen
 
-###Use Frame Buffer copy
+### Use Frame Buffer copy
 install fbcp
 
     sudo apt-get install cmake
