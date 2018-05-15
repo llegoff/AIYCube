@@ -124,7 +124,7 @@ to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 edit file '/boot/config.txt', add line
 
     #enable TFT Touch
-    dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=200,xmax=3900,ymin=200,ymax=3900
+    dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=346,xmax=3947,ymin=195,ymax=3896
     
 install xinput-calibrator
     
@@ -133,20 +133,44 @@ install xinput-calibrator
 launch xinput_calibrator
 
     DISPLAY=:0 xinput_calibrator
+    
+after calibration, xinput_calibrator diplay information
+
+    Calibrating standard Xorg driver "ADS7846 Touchscreen"
+            current calibration values: min_x=0, max_x=65535 and min_y=0, max_y=65535
+            If these values are estimated wrong, either supply it manually with the --precalib option, or run the 'get_precalib.sh' script to automatically get it (through HAL).
+            --> Making the calibration permanent <--
+      copy the snippet below into '/etc/X11/xorg.conf.d/99-calibration.conf' (/usr/share/X11/xorg.conf.d/ in some distro's)
+    Section "InputClass"
+            Identifier      "calibration"
+            MatchProduct    "ADS7846 Touchscreen"
+            Option  "MinX"  "5598"
+            Option  "MaxX"  "63214"
+            Option  "MinY"  "3482"
+            Option  "MaxY"  "61917"
+            Option  "SwapXY"        "0" # unless it was already set to 1
+            Option  "InvertX"       "0"  # unless it was already set
+            Option  "InvertY"       "0"  # unless it was already set
+    EndSection
 
 create file '/usr/share/X11/xorg.conf.d/99-calibration.conf' with content display by xinput_calibrator
 
     Section "InputClass"
         Identifier      "calibration"
         MatchProduct    "ADS7846 Touchscreen"
-        Option  "MinX"  "2893"
-        Option  "MaxX"  "67404"
-        Option  "MinY"  "3083"
-        Option  "MaxY"  "61974"
+        Option  "MinX"  "5598"
+        Option  "MaxX"  "63214"
+        Option  "MinY"  "3482"
+        Option  "MaxY"  "61917"
         Option  "SwapXY"        "0" # unless it was already set to 1
         Option  "InvertX"       "0"  # unless it was already set
         Option  "InvertY"       "0"  # unless it was already set
     EndSection
+
+install 'xserver-xorg-input-evdev'
+
+    sudo apt-get install xserver-xorg-input-evdev
+    sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
 
 add a virtual keyboard
 
