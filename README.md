@@ -124,7 +124,7 @@ to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 edit file '/boot/config.txt', add line
 
     #enable TFT Touch
-    dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=346,xmax=3947,ymin=195,ymax=3896
+    dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60
     
 install 'xinput-calibrator' and 'xserver-xorg-input-evdev' 
     
