@@ -1,3 +1,5 @@
+:fr: :uk:
+
 # AIYCube
 
 
