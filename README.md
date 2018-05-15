@@ -125,6 +125,10 @@ edit file '/boot/config.txt', add line
 
     #enable TFT Touch
     dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=200,xmax=3900,ymin=200,ymax=3900
+    
+add a virtual keyboard
+
+    sudo apt-get install matchbox-keyboard
  
 ## Configure audio on Raspberry Pi Zéro
 
