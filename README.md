@@ -197,14 +197,16 @@ install cups
 
 get driver, make and install
 
-    git clone https://github.com/klirichek/zj-58.git
+    git clone https://github.com/adafruit/zj-58
     cd zj-58/
     make
     sudo ./install
-Add printer on preference menu, Print settings, 
-add printer, select serial port
+    
+Add printer 
 
-select printer from database, Zijiang, ZJ-58
+    sudo lpadmin -p ZJ-58 -E -v serial:/dev/serial0?baud=9600 -m zjiang/ZJ-58.ppd
+    sudo lpoptions –d ZJ–58
+
 
 
     
