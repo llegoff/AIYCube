@@ -189,6 +189,23 @@ edit file '/boot/config.txt', add line
     #find keycode in https://github.com/torvalds/linux/blob/v4.12/include/uapi/linux/input-event-codes.h
     dtoverlay=gpio-key,gpio=16,keycode=16
 
+## Configure thermal printer ZJ-58
+
+install cups 
+
+    sudo apt-get install libcups2-dev libcupsimage2-dev git build-essential cups system-config-printer
+
+get driver, make and install
+
+    git clone https://github.com/klirichek/zj-58.git
+    cd zj-58/
+    make
+    sudo ./install
+Add printer on preference menu, Print settings, 
+add printer, select serial port
+
+select printer from database, Zijiang, ZJ-58
+
 
     
     
