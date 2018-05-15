@@ -126,6 +126,28 @@ edit file '/boot/config.txt', add line
     #enable TFT Touch
     dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=200,xmax=3900,ymin=200,ymax=3900
     
+install xinput-calibrator
+    
+    sudo apt-get install xinput-calibrator
+
+launch xinput_calibrator
+
+    DISPLAY=:0 xinput_calibrator
+
+create file '/usr/share/X11/xorg.conf.d/99-calibration.conf' with content display by xinput_calibrator
+
+    Section "InputClass"
+        Identifier      "calibration"
+        MatchProduct    "ADS7846 Touchscreen"
+        Option  "MinX"  "2893"
+        Option  "MaxX"  "67404"
+        Option  "MinY"  "3083"
+        Option  "MaxY"  "61974"
+        Option  "SwapXY"        "0" # unless it was already set to 1
+        Option  "InvertX"       "0"  # unless it was already set
+        Option  "InvertY"       "0"  # unless it was already set
+    EndSection
+
 add a virtual keyboard
 
     sudo apt-get install matchbox-keyboard
