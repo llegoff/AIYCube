@@ -40,19 +40,19 @@ edit file '/boot/config.txt', add line
     dtoverlay=pitft22,rotate=90,speed=64000000,fps=25
     
     #640x480 60hz for framebuffer copy /2
-    #hdmi_force_hotplug=1
-    #hdmi_cvt=640 480 60 1 0 0 0
-    #hdmi_group=2
-    #hdmi_mode=87
-    
-    #320x240 60hz  for frame buffer copy
     hdmi_force_hotplug=1
-    hdmi_cvt=320 240 60 1 0 0 0
+    hdmi_cvt=640 480 60 1 0 0 0
     hdmi_group=2
     hdmi_mode=87
     
+    #320x240 60hz  for frame buffer copy
+    #hdmi_force_hotplug=1
+    #hdmi_cvt=320 240 60 1 0 0 0
+    #hdmi_group=2
+    #hdmi_mode=87
+    
     #enable TFT Touch
-    dtoverlay=ads7846,xohms=80,pmax=255,penirq=24,swapxy
+    dtoverlay=ads7846,penirq=24,swapxy=1,pmax=255,xohms=60,xmin=200,xmax=3900,ymin=200,ymax=3900
     
     # Enable audio on PI Zero (loads snd_bcm2835)
     dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2
