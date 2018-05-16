@@ -187,7 +187,7 @@ edit file '/boot/config.txt', add line
     
     #map keyboard key on button on GPIO
     #find keycode in https://github.com/torvalds/linux/blob/v4.12/include/uapi/linux/input-event-codes.h
-    dtoverlay=gpio-key,gpio=16,keycode=16
+    dtoverlay=gpio-key,gpio=16,keycode=16,label="KEY_Q"
 
 ## Configure thermal printer ZJ-58
 
