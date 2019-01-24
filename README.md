@@ -76,6 +76,8 @@ select finish and reboot
 
 ## Configure TFT
 
+![](img/TFT.PNG)
+
 edit file '/boot/config.txt', add line
 
     #enable TFT ILI9341 320x240
