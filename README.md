@@ -177,12 +177,16 @@ edit file '/boot/config.txt', add line
 
 ## Configure On/Off button
 
+![](img/OnOffButton.PNG)
+
 edit file '/boot/config.txt', add line
     
     #enable on/off button
     dtoverlay=gpio-shutdown
 
 ## Configure arcade button
+
+![](img/ArcadeButton.PNG)
 
 edit file '/boot/config.txt', add line
     
