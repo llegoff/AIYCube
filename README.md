@@ -1,5 +1,6 @@
 # AIYCube
 
+![](img/AIYCube.jpg)
 
 ## SD Card preparation
 
