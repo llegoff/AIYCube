@@ -124,6 +124,8 @@ to run fbcp at startup, edit file '/etc/rc.local' , add before 'exit 0'
 
 ## Configure Touchscreen
 
+![](img/Touch.PNG)
+
 edit file '/boot/config.txt', add line
 
     #enable TFT Touch
