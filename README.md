@@ -173,6 +173,8 @@ add a virtual keyboard
  
 ## Configure audio on Raspberry Pi Zéro
 
+![](img/ZeroAudio.PNG)
+
 edit file '/boot/config.txt', add line
 
     # Enable audio on PI Zero (loads snd_bcm2835)
